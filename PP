@@ -2,131 +2,240 @@
 
 **Effective Date:** August 21, 2026
 
-This Privacy Policy explains how **Economy Assistant** ("the Bot") collects, stores, and uses information within the **/r/TheSpikeGame Discord server**.
+This Privacy Policy explains how **Economy Assistant** ("the Bot") processes and stores information in connection with the **/r/TheSpikeGame Discord server** ("the Server").
 
-Economy Assistant is a private Discord bot intended exclusively for use in that server.
+Economy Assistant is a private Discord bot intended exclusively for use within the Server.
 
-## 1. Information We Collect
+## 1. Information Economy Assistant Processes
 
-Economy Assistant may collect and store information contained in designated economy-related Discord channels.
+Economy Assistant uses Discord's message-content functionality in order to identify supported message-based UnbelievaBoat give commands.
+
+The Bot may process message content to determine whether a message begins with:
+
+* `!give`
+* `!money-give`
+* `!pay`
+* `!donate-money`
+* `!give-money`
+
+This processing is used to determine whether an applicable economy cooldown should begin or whether a user is already subject to an active cooldown.
+
+Ordinary message content processed for this purpose is not automatically added to a permanent message database by the cooldown system.
+
+## 2. Persistent Bot Configuration and Cooldown Data
+
+Economy Assistant stores certain operational information in a local state file so that settings and active cooldowns can survive Bot restarts.
 
 This may include:
 
-* Discord user IDs
-* Discord usernames and display names
-* Discord message IDs
-* Transaction amounts
-* Transaction types or reasons
-* Economy balances
-* Timestamps
-* Information contained in UnbelievaBoat economy logs
-* Information necessary to track or enforce `!give` cooldowns
+* Discord user IDs of members granted command access.
+* Discord role IDs granted command access.
+* Discord role IDs with configured cooldowns.
+* Configured cooldown durations.
+* Discord user IDs currently subject to a cooldown.
+* The Discord server ID associated with an active cooldown.
+* The timestamp at which an active cooldown expires.
+* The configured maximum give amount.
 
-The Bot is not designed to collect sensitive personal information such as real names, addresses, passwords, payment information, or government identification.
+This data is used to operate and restore Economy Assistant's configuration and cooldown system.
 
-## 2. How Information Is Collected
+## 3. Channel Export Data
 
-Information is collected automatically from messages and embeds posted in designated economy logging channels within the /r/TheSpikeGame Discord server.
+Economy Assistant includes an administrative feature that allows an authorized user to create a database containing the accessible message history of a selected Discord text channel.
 
-The Bot may also process messages involving the `!give` command in order to enforce server-defined cooldown restrictions.
+When an export is requested, the Bot may process and include:
 
-## 3. Why We Collect Information
+### User information
 
-Collected information may be used for:
+* Discord user ID
+* Username
+* Display name
+* Discord discriminator, where applicable
+* Avatar identifier
 
-* Maintaining an economy transaction database
-* Tracking economy activity
-* Enforcing `!give` cooldowns
-* Detecting abuse or suspicious activity
-* Investigating economy disputes
-* Moderation and administration
-* Generating economy statistics
-* Balancing the server economy
-* Debugging and maintaining the Bot
+### Message information
 
-Data will not be used for advertising or sold to third parties.
+* Message ID
+* Message content
+* Message timestamp
+* Edit timestamp
+* Sender ID
+* Reply relationships
+* Embed contents
+* Reactions and reaction counts
 
-## 4. Data Storage
+### Attachment information
 
-Economy information may be stored in a persistent database operated by the Economy Assistant bot operator.
+* Attachment ID
+* Filename
+* Content type
+* Discord/CDN URL
+* File size
+* Image width and height, where available
 
-Reasonable measures may be used to prevent unauthorized access to this database.
+The current export system records attachment information and URLs. It does not intentionally download and store attachment file contents as part of the normal export process.
 
-However, no electronic storage system can be guaranteed to be completely secure.
+### Server and channel information
 
-## 5. Data Access
+* Discord server ID
+* Server name
+* Server icon identifier
+* Channel ID
+* Channel name
+* Channel category or parent information
+* Channel position
+* Channel topic
+* Whether Discord reports the channel as NSFW
 
-Stored data may be accessed by:
+The exact contents of an export depend on the messages and metadata available through Discord at the time it is created.
 
-* The Economy Assistant operator
-* Authorized /r/TheSpikeGame staff where access is necessary for moderation, administration, or economy management
+## 4. How Channel Exports Work
 
-Access to stored information is not intended to be provided to unrelated third parties.
+Channel exports are created **only when an authorized user runs the export command**.
 
-## 6. Data Sharing
+Economy Assistant does not continuously maintain a permanent database containing every message in the Server.
 
-Economy Assistant does not sell user information.
+When an export is requested, the Bot reads the existing accessible history of the selected channel and creates a temporary DHT database.
 
-Stored information may be shared when reasonably necessary:
+The resulting database is then sent through Discord to the location where the command response is delivered.
 
-* With authorized server staff
-* To investigate abuse or violations of server rules
-* To protect the Bot or server from misuse
-* Where disclosure is required by applicable law
+An authorized user may cancel an export. In that case, Economy Assistant saves the messages already processed and sends the resulting partial database.
 
-## 7. Data Retention
+## 5. Temporary Export Storage
 
-Economy transaction information may be retained for as long as it remains reasonably useful for:
+During an export, Economy Assistant temporarily stores the generated DHT database on the system hosting the Bot.
 
-* Maintaining economy history
-* Moderation
-* Auditing transactions
-* Statistical analysis
-* Economy balancing
-* Investigating abuse
+The Bot is designed to delete this temporary local file after the export attempt finishes.
 
-Because the Bot maintains a historical economy database, deleting the original Discord message does not necessarily delete the corresponding stored database record.
+Once the database has been uploaded to Discord, however, the copy sent through Discord is subject to Discord's storage systems, the permissions of the channel in which it was sent, and any copies subsequently downloaded or redistributed by users.
 
-## 8. Data Deletion Requests
+The Bot operator cannot automatically delete copies independently saved by other users.
 
-Users may contact the **/r/TheSpikeGame server administration** regarding questions or requests relating to their stored information.
+## 6. Purposes of Processing
 
-Some information may need to be retained where it is reasonably necessary for moderation, abuse prevention, maintaining transaction records, or other legitimate server administration purposes.
+Economy Assistant processes information for purposes including:
 
-Where possible and appropriate, identifiable information may be deleted, anonymized, or otherwise removed from active use.
+* Enforcing Server economy cooldowns.
+* Maintaining cooldowns across Bot restarts.
+* Managing authorized Bot access.
+* Creating requested channel-history exports.
+* Auditing economy activity.
+* Investigating suspicious or abusive economy activity.
+* Resolving economy disputes.
+* Moderating and administering the Server.
+* Generating economy statistics or analysis.
+* Balancing the Server economy.
+* Debugging and maintaining Economy Assistant.
+* Protecting the Bot and Server from abuse.
 
-## 9. Automated Processing
+Economy Assistant is not intended to use collected information for advertising or commercial profiling.
 
-Economy Assistant may automatically process Discord user IDs, messages, timestamps, and economy activity in order to determine whether a user is permitted to use certain economy commands.
+## 7. Who Can Access Economy Assistant Commands
 
-For example, the Bot may automatically determine whether a user is still subject to a cooldown for the `!give` command.
+Economy Assistant's administrative functionality is restricted to Server administrators and roles or members that administrators explicitly authorize.
 
-## 10. Third-Party Services
+The command that grants additional users or roles access to Economy Assistant is restricted to administrators.
 
-Economy Assistant operates through Discord and processes economy information generated by services such as UnbelievaBoat.
+Access permissions may be modified or revoked by Server administration.
 
-Those services operate independently and have their own terms and privacy practices.
+## 8. Who May Receive Exported Data
 
-Economy Assistant is not affiliated with or operated by Discord or UnbelievaBoat.
+A generated channel export is sent through Discord in response to the authorized command that created it.
 
-## 11. Server Scope
+Depending on where that command is used, other users with access to the response channel may also be able to access the exported file.
 
-Economy Assistant is intended exclusively for the **/r/TheSpikeGame Discord server**.
+Server staff are responsible for using the export feature only in appropriate channels and for controlling access to exported databases.
 
-The Bot does not intentionally collect information from users or servers outside of this environment.
+Exported information should not be shared with unauthorized third parties except where reasonably necessary for legitimate Server administration, security, enforcement, or legal obligations.
 
-## 12. Children's Privacy
+Economy Assistant does not sell personal information.
 
-Economy Assistant does not intentionally collect information for the purpose of identifying children.
+## 9. Data Retention
 
-Use of Discord remains subject to Discord's applicable age requirements and policies.
+Different categories of information are retained differently.
 
-## 13. Changes to This Privacy Policy
+### Cooldown and configuration data
 
-This Privacy Policy may be updated if Economy Assistant's features, database structure, or data-handling practices change.
+Configuration information may remain stored for as long as it remains configured.
 
-The effective date at the top of this policy will indicate when the current version became effective.
+Active cooldown records are normally removed when the relevant cooldown expires.
 
-## 14. Contact
+User or role IDs explicitly granted command access may remain stored until the Bot's configuration is changed or the data is otherwise removed.
 
-Questions, concerns, or requests regarding this Privacy Policy or information stored by Economy Assistant should be directed to the **/r/TheSpikeGame server administration**.
+### Temporary exports
+
+The Bot's temporary local DHT export file is designed to be deleted after the export process finishes.
+
+### Copies sent through Discord
+
+A DHT file uploaded to Discord may remain available according to Discord's retention practices and actions taken by Server staff or other authorized users.
+
+Additional downloaded copies are outside Economy Assistant's direct control.
+
+## 10. Message Deletion and Exported Copies
+
+Deleting or editing a Discord message does not automatically modify a DHT database that was previously generated.
+
+An export is a snapshot of the channel information available when the export occurred.
+
+As a result, previously exported databases may contain information that has subsequently been edited or deleted from Discord.
+
+## 11. Data Security
+
+Reasonable efforts should be made to restrict access to Economy Assistant's hosting environment, configuration files, administrative commands, and generated databases.
+
+However, no electronic system can be guaranteed to be completely secure.
+
+Authorized users are expected to protect exported databases from unauthorized access or redistribution.
+
+## 12. Data Deletion and Privacy Requests
+
+Users may contact the **/r/TheSpikeGame Discord server administration** regarding questions or requests concerning information processed through Economy Assistant.
+
+Depending on the type of information involved:
+
+* Active Bot state may be corrected or removed where appropriate.
+* A temporary export may already have been automatically deleted from the Bot's hosting system.
+* Copies previously sent through Discord or downloaded by authorized users may need to be handled separately.
+
+Some information may be retained where reasonably necessary for Server security, moderation, dispute resolution, abuse prevention, or compliance with applicable obligations.
+
+Nothing in this section limits rights that a user may have under applicable data-protection law.
+
+## 13. Sensitive Personal Information
+
+Economy Assistant is not designed for the purpose of collecting real names, home addresses, passwords, payment-card details, government identification, or similar sensitive personal information.
+
+However, because authorized channel exports contain message content, an export could contain personal information that a Discord user voluntarily posted in the exported channel.
+
+Users should therefore avoid posting sensitive personal information in Discord channels where it is unnecessary.
+
+## 14. Children's Privacy
+
+Economy Assistant is not designed to specifically collect information about children.
+
+Use of the Server and Discord remains subject to Discord's applicable age requirements and policies.
+
+## 15. Third-Party Services
+
+Economy Assistant operates through Discord and interacts with UnbelievaBoat.
+
+Discord and UnbelievaBoat are independent services with their own terms, privacy practices, and data-processing activities.
+
+Economy Assistant is not affiliated with or operated by either service.
+
+## 16. Server Scope
+
+Economy Assistant is intended for use only within the **/r/TheSpikeGame Discord server**.
+
+Its information processing is intended to support administration of that Server and its virtual economy.
+
+## 17. Changes to This Privacy Policy
+
+This Privacy Policy may be updated if Economy Assistant's functionality, storage practices, permissions, or data-processing behavior changes.
+
+The effective date at the top of this policy identifies the current version.
+
+## 18. Contact
+
+Questions, concerns, privacy requests, or requests relating to Economy Assistant data should be directed to the **/r/TheSpikeGame Discord server administration**.
