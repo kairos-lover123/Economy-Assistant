@@ -2,140 +2,201 @@
 
 **Effective Date:** August 21, 2026
 
-These Terms of Service ("Terms") govern the use of **Economy Assistant** ("the Bot"), a Discord bot operated exclusively within the **/r/TheSpikeGame Discord server**.
+These Terms of Service ("Terms") govern the use of **Economy Assistant** ("the Bot"), a private Discord bot intended for use exclusively within the **/r/TheSpikeGame Discord server** ("the Server").
 
-By using features of the server economy that interact with Economy Assistant, you agree to these Terms.
+By participating in Server features that interact with Economy Assistant, you agree to these Terms and the applicable rules of the Server.
 
 ## 1. Purpose
 
-Economy Assistant is a server utility designed to assist with the management and moderation of the /r/TheSpikeGame Discord economy.
+Economy Assistant is a moderation and administration utility for the Server's virtual economy.
 
-The Bot may:
+The Bot provides functionality including:
 
-* Apply and enforce a cooldown on use of the `!give` command provided by UnbelievaBoat.
-* Read economy-related messages in designated economy logging channels.
-* Store economy log information in a database for moderation, administration, statistics, auditing, and economy management.
-* Provide server staff with tools based on this stored economy information.
+* Applying role-based cooldowns to UnbelievaBoat give commands.
+* Supporting the following message-based UnbelievaBoat give aliases:
 
-Economy Assistant is not affiliated with, endorsed by, or operated by UnbelievaBoat or Discord.
+  * `!give`
+  * `!money-give`
+  * `!pay`
+  * `!donate-money`
+  * `!give-money`
+* Generating Discord AutoMod regex patterns that Server staff may use to limit the maximum amount transferable through supported message-based give commands.
+* Exporting the existing message history of a selected Discord text channel into a DHT database.
+* Allowing authorized users to stop an export and receive the partial database.
+* Providing administrative configuration commands.
 
-## 2. Availability
+Economy Assistant is not affiliated with, endorsed by, or operated by Discord or UnbelievaBoat.
 
-Economy Assistant is a private bot intended exclusively for use in the **/r/TheSpikeGame Discord server**.
+## 2. Server Availability
 
-You may not add, copy, redistribute, reproduce, or attempt to operate the Bot in another Discord server without authorization from its operator.
+Economy Assistant is intended exclusively for the **/r/TheSpikeGame Discord server**.
 
-## 3. `!give` Cooldown
+The Bot is not offered as a public Discord bot or general-purpose service.
 
-Economy Assistant may restrict how frequently users can use UnbelievaBoat's `!give` command.
+Unauthorized copying, redistribution, modification, hosting, or use of the Bot outside its authorized environment may be prohibited by the Bot operator.
 
-Attempts to intentionally evade or bypass these restrictions, including through alternate accounts or other methods, may result in restrictions or moderation action under the server's rules.
+## 3. Administrative Access
 
-Cooldown values and other economy restrictions may be changed by server administration at any time.
+Most Economy Assistant commands are restricted to:
 
-## 4. Economy Log Data
+* Members with the Discord Administrator permission; or
+* Roles or individual members explicitly granted Economy Assistant command access by an administrator.
 
-Economy Assistant may process and store information contained in designated economy log channels.
+The ability to grant additional command access is itself restricted to Server administrators.
 
-This may include information such as:
+Authorized access may be changed or revoked at any time.
 
+## 4. Give Cooldowns
+
+Server staff may configure cooldown periods for specific Discord roles.
+
+When a member with a configured role uses a supported message-based give command, Economy Assistant may assign that member a designated cooldown role for the configured period.
+
+If multiple configured roles apply to the same member, the Bot uses the shortest applicable cooldown.
+
+Cooldown information may remain active across Bot restarts. If a cooldown expires while the Bot is offline, Economy Assistant may remove the cooldown role when it next becomes available.
+
+Users must not intentionally bypass or evade economy cooldowns, including through alternate accounts, command variants, permission exploits, or other methods.
+
+The effectiveness of a cooldown may also depend on the Server's Discord permissions, roles, AutoMod configuration, and UnbelievaBoat configuration.
+
+## 5. Maximum Give Amount
+
+Economy Assistant can generate Discord AutoMod regular expressions intended to block supported message-based give commands above a Server-defined amount, as well as transfers using `all`.
+
+These regular expressions must be configured in Discord AutoMod by authorized Server staff.
+
+Economy Assistant does not guarantee that an AutoMod pattern will intercept every possible command format.
+
+Discord AutoMod cannot use these message regex patterns to restrict another bot's slash-command interactions. Therefore, this functionality does not itself restrict UnbelievaBoat's `/give` slash command.
+
+## 6. Channel Exports
+
+Authorized users may instruct Economy Assistant to export the existing history of a Discord text channel that the Bot is permitted to view.
+
+An export may include the complete accessible message history of the selected channel at the time the export is performed.
+
+Exports may contain:
+
+* Message content
+* Message IDs
 * Discord user IDs
-* Discord usernames or display names
-* Discord message IDs
-* Transaction amounts
-* Transaction types or reasons
-* Economy balances
-* Command or transaction timestamps
-* Other information included in economy-related messages or embeds
+* Usernames and display names
+* Message timestamps
+* Edit timestamps
+* Reply relationships
+* Embeds
+* Reactions
+* Attachment information and URLs
+* Channel information
+* Server information
+* Other metadata associated with exported Discord messages
 
-This information may be stored in a database.
+Exports are generated on demand. Economy Assistant does not continuously add new messages to a previously generated export.
 
-## 5. Use of Stored Data
+The Bot may temporarily create the database on the system hosting Economy Assistant and then send the resulting file through Discord.
 
-Stored economy information may be used for purposes including:
+## 7. Export Access and Responsibility
 
-* Detecting abuse or suspicious economy activity
-* Reviewing transactions
-* Enforcing economy rules
-* Investigating disputes
-* Generating economy statistics
-* Balancing the server economy
-* Moderation and administration
-* Debugging or maintaining Economy Assistant
+Channel exports may contain information that was visible only to members with access to the original channel.
 
-The database is not intended to be used to identify users outside Discord.
+Users with access to Economy Assistant's export functionality must use exported data only for legitimate Server administration, moderation, auditing, economy analysis, or other authorized purposes.
 
-## 6. Access to Data
+Authorized users must not:
 
-Economy Assistant's stored database and administrative functionality may only be accessed by the Bot operator and authorized members of the /r/TheSpikeGame staff where necessary for administration or moderation.
+* Publish private-channel exports without authorization.
+* Distribute exported databases to unauthorized persons.
+* Use exported information to harass, impersonate, dox, or target users.
+* Use the export system to access information they are not authorized to access.
+* Attempt to circumvent Discord channel permissions.
 
-Stored information will not be sold to third parties.
+Once an exported file has been sent through Discord or separately downloaded or redistributed by an authorized user, Economy Assistant cannot control additional copies of that file.
 
-Information may be disclosed where required by applicable law or where reasonably necessary to protect the server, the Bot, or its users from abuse.
-
-## 7. Data Retention
-
-Economy records may be retained for as long as reasonably necessary for economy administration, statistics, moderation, auditing, or maintaining historical transaction records.
-
-Deleting a Discord message does not necessarily remove information that was previously recorded in the Economy Assistant database.
-
-## 8. User Responsibilities
+## 8. Acceptable Use
 
 Users must not:
 
-* Attempt to bypass Economy Assistant restrictions.
-* Abuse bugs or unintended Bot behavior.
-* Attempt to access the Bot's database or administrative functionality without authorization.
-* Interfere with the Bot's operation.
-* Use automated accounts or scripts to evade economy restrictions.
-* Exploit interactions between Economy Assistant and UnbelievaBoat.
+* Attempt to bypass cooldowns or economy limits.
+* Exploit bugs or unintended Bot behavior.
+* Attempt to access administrative commands without authorization.
+* Attempt to gain unauthorized access to Bot files, databases, credentials, or hosting systems.
+* Intentionally interfere with the Bot's operation.
+* Use alternate accounts or automation to evade economy restrictions.
+* Abuse interactions between Economy Assistant, Discord, and UnbelievaBoat.
 
-Abuse may result in loss of economy privileges or other action under /r/TheSpikeGame server rules.
+Violations may result in economy restrictions, loss of Bot access, moderation action, or other penalties under Server rules.
 
-## 9. No Guarantee of Availability
+## 9. Virtual Economy
+
+Economy Assistant interacts with a Discord-based virtual economy.
+
+Unless separately stated by the Server, virtual currency, balances, items, roles, or similar economy features do not represent guaranteed real-world monetary value.
+
+The Server administration may modify economy rules, cooldowns, limits, prices, balances, or other economy settings at any time.
+
+## 10. Availability and Accuracy
 
 Economy Assistant is provided on an **"as is"** and **"as available"** basis.
 
 There is no guarantee that the Bot will:
 
-* Remain online at all times.
-* Record every transaction.
-* Prevent every prohibited transaction.
-* Be free from bugs or errors.
-* Preserve stored economy information indefinitely.
+* Remain online continuously.
+* Detect every relevant command.
+* Enforce every cooldown successfully.
+* Generate perfect AutoMod rules.
+* Export every message or piece of metadata.
+* Remain compatible with future Discord or UnbelievaBoat updates.
+* Operate without errors, interruptions, or data loss.
 
-Features may be changed, suspended, or discontinued at any time.
+Bot records and exports should not be assumed to be infallible.
 
-## 10. Economy Decisions
+## 11. Third-Party Services
 
-Information produced or stored by Economy Assistant may assist server staff in making moderation or economy decisions.
+Economy Assistant depends on third-party services including Discord and interacts with UnbelievaBoat.
 
-Server staff may review relevant evidence manually where appropriate. Economy Assistant does not guarantee that its records are complete or error-free.
+Changes, outages, restrictions, API changes, permission changes, or errors involving those services may affect the Bot.
 
-## 11. Limitation of Liability
+Users remain subject to applicable Discord terms, policies, and Server rules.
 
-To the maximum extent permitted by applicable law, the Bot operator and /r/TheSpikeGame staff are not responsible for losses resulting from bugs, outages, incorrect records, failed commands, economy changes, database errors, or other unintended Bot behavior.
+## 12. Limitation of Liability
 
-This includes the loss of virtual server currency or other Discord server economy items that have no guaranteed real-world monetary value.
+To the maximum extent permitted by applicable law, the Bot operator and /r/TheSpikeGame administration are not responsible for losses or damages resulting from:
 
-## 12. Discord and Third-Party Services
+* Bot downtime or errors
+* Incorrect or missing cooldowns
+* Failed or incorrectly configured AutoMod rules
+* Incorrect, incomplete, or failed exports
+* Loss of virtual currency or economy items
+* Discord or UnbelievaBoat outages or changes
+* Unauthorized redistribution of an export by another user
+* Other unintended Bot behavior
 
-Use of Economy Assistant is also subject to applicable Discord rules and policies.
-
-Economy Assistant interacts with information generated by third-party services such as UnbelievaBoat. Changes, outages, or errors involving those services may affect Economy Assistant's functionality.
+Nothing in these Terms excludes liability that cannot legally be excluded.
 
 ## 13. Suspension or Termination
 
-Access to Economy Assistant functionality may be restricted or terminated for users who violate these Terms, server rules, or applicable Discord policies.
+Access to Economy Assistant may be restricted or revoked at any time, including where a user:
 
-The Bot itself may also be modified or discontinued at any time.
+* Violates these Terms.
+* Violates Server rules.
+* Abuses economy systems.
+* Misuses exported information.
+* Creates a security or operational risk.
 
-## 14. Changes to These Terms
+Economy Assistant itself may be modified, suspended, replaced, or discontinued at any time.
 
-These Terms may be updated when Economy Assistant's functionality, data handling, or server economy systems change.
+## 14. Privacy
 
-Continued use of the applicable economy features after updated Terms take effect constitutes acceptance of the updated Terms.
+Use of Economy Assistant is also subject to the **Economy Assistant Privacy Policy**, which explains what information the Bot processes and stores.
 
-## 15. Contact
+## 15. Changes to These Terms
 
-Questions regarding Economy Assistant, these Terms, or stored economy information should be directed to the **/r/TheSpikeGame server administration**.
+These Terms may be updated when Economy Assistant, the Server economy, Discord, or related systems change.
+
+The effective date above identifies the current version.
+
+Continued use of applicable Server features after updated Terms take effect constitutes acceptance of the revised Terms to the extent permitted by applicable law.
+
+## 16. Contact
+
+Questions about Economy Assistant or these Terms should be directed to the **/r/TheSpikeGame Discord server administration**.
