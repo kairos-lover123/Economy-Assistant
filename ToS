@@ -1,0 +1,141 @@
+# Economy Assistant Terms of Service
+
+**Effective Date:** August 21, 2026
+
+These Terms of Service ("Terms") govern the use of **Economy Assistant** ("the Bot"), a Discord bot operated exclusively within the **/r/TheSpikeGame Discord server**.
+
+By using features of the server economy that interact with Economy Assistant, you agree to these Terms.
+
+## 1. Purpose
+
+Economy Assistant is a server utility designed to assist with the management and moderation of the /r/TheSpikeGame Discord economy.
+
+The Bot may:
+
+* Apply and enforce a cooldown on use of the `!give` command provided by UnbelievaBoat.
+* Read economy-related messages in designated economy logging channels.
+* Store economy log information in a database for moderation, administration, statistics, auditing, and economy management.
+* Provide server staff with tools based on this stored economy information.
+
+Economy Assistant is not affiliated with, endorsed by, or operated by UnbelievaBoat or Discord.
+
+## 2. Availability
+
+Economy Assistant is a private bot intended exclusively for use in the **/r/TheSpikeGame Discord server**.
+
+You may not add, copy, redistribute, reproduce, or attempt to operate the Bot in another Discord server without authorization from its operator.
+
+## 3. `!give` Cooldown
+
+Economy Assistant may restrict how frequently users can use UnbelievaBoat's `!give` command.
+
+Attempts to intentionally evade or bypass these restrictions, including through alternate accounts or other methods, may result in restrictions or moderation action under the server's rules.
+
+Cooldown values and other economy restrictions may be changed by server administration at any time.
+
+## 4. Economy Log Data
+
+Economy Assistant may process and store information contained in designated economy log channels.
+
+This may include information such as:
+
+* Discord user IDs
+* Discord usernames or display names
+* Discord message IDs
+* Transaction amounts
+* Transaction types or reasons
+* Economy balances
+* Command or transaction timestamps
+* Other information included in economy-related messages or embeds
+
+This information may be stored in a database.
+
+## 5. Use of Stored Data
+
+Stored economy information may be used for purposes including:
+
+* Detecting abuse or suspicious economy activity
+* Reviewing transactions
+* Enforcing economy rules
+* Investigating disputes
+* Generating economy statistics
+* Balancing the server economy
+* Moderation and administration
+* Debugging or maintaining Economy Assistant
+
+The database is not intended to be used to identify users outside Discord.
+
+## 6. Access to Data
+
+Economy Assistant's stored database and administrative functionality may only be accessed by the Bot operator and authorized members of the /r/TheSpikeGame staff where necessary for administration or moderation.
+
+Stored information will not be sold to third parties.
+
+Information may be disclosed where required by applicable law or where reasonably necessary to protect the server, the Bot, or its users from abuse.
+
+## 7. Data Retention
+
+Economy records may be retained for as long as reasonably necessary for economy administration, statistics, moderation, auditing, or maintaining historical transaction records.
+
+Deleting a Discord message does not necessarily remove information that was previously recorded in the Economy Assistant database.
+
+## 8. User Responsibilities
+
+Users must not:
+
+* Attempt to bypass Economy Assistant restrictions.
+* Abuse bugs or unintended Bot behavior.
+* Attempt to access the Bot's database or administrative functionality without authorization.
+* Interfere with the Bot's operation.
+* Use automated accounts or scripts to evade economy restrictions.
+* Exploit interactions between Economy Assistant and UnbelievaBoat.
+
+Abuse may result in loss of economy privileges or other action under /r/TheSpikeGame server rules.
+
+## 9. No Guarantee of Availability
+
+Economy Assistant is provided on an **"as is"** and **"as available"** basis.
+
+There is no guarantee that the Bot will:
+
+* Remain online at all times.
+* Record every transaction.
+* Prevent every prohibited transaction.
+* Be free from bugs or errors.
+* Preserve stored economy information indefinitely.
+
+Features may be changed, suspended, or discontinued at any time.
+
+## 10. Economy Decisions
+
+Information produced or stored by Economy Assistant may assist server staff in making moderation or economy decisions.
+
+Server staff may review relevant evidence manually where appropriate. Economy Assistant does not guarantee that its records are complete or error-free.
+
+## 11. Limitation of Liability
+
+To the maximum extent permitted by applicable law, the Bot operator and /r/TheSpikeGame staff are not responsible for losses resulting from bugs, outages, incorrect records, failed commands, economy changes, database errors, or other unintended Bot behavior.
+
+This includes the loss of virtual server currency or other Discord server economy items that have no guaranteed real-world monetary value.
+
+## 12. Discord and Third-Party Services
+
+Use of Economy Assistant is also subject to applicable Discord rules and policies.
+
+Economy Assistant interacts with information generated by third-party services such as UnbelievaBoat. Changes, outages, or errors involving those services may affect Economy Assistant's functionality.
+
+## 13. Suspension or Termination
+
+Access to Economy Assistant functionality may be restricted or terminated for users who violate these Terms, server rules, or applicable Discord policies.
+
+The Bot itself may also be modified or discontinued at any time.
+
+## 14. Changes to These Terms
+
+These Terms may be updated when Economy Assistant's functionality, data handling, or server economy systems change.
+
+Continued use of the applicable economy features after updated Terms take effect constitutes acceptance of the updated Terms.
+
+## 15. Contact
+
+Questions regarding Economy Assistant, these Terms, or stored economy information should be directed to the **/r/TheSpikeGame server administration**.
