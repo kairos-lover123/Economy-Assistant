@@ -535,25 +535,22 @@ Requests will be assessed in accordance with applicable law and Discord's Develo
 
 ## 17. Data Security
 
-The Bot's operator is responsible for taking appropriate technical and organizational measures to protect information processed by Economy Assistant.
+The Bot's current storage implementation uses AES-256-GCM application-level encryption for supported persistent data, including JSON-based Bot state, gameplay-related records, and the persisted moderation-report database. This encryption helps prevent the contents of protected files from being read or altered without the relevant encryption key.
 
-These measures should include:
+Supported data is decrypted in memory when the Bot needs to read or update it and encrypted again when saved. This allows gameplay, statistics, inventory, cooldown, restriction, AFK, and reporting features to work without making their stored records publicly readable.
 
-- Restricting access to hosting systems.
-- Protecting Bot credentials and API tokens.
-- Limiting administrative command access.
-- Restricting moderation evidence channels.
-- Controlling access to stored databases and configuration files.
-- Protecting stored information against unauthorized access.
-- Securing data during transmission and storage.
-- Removing data when it is no longer required.
+### Access and administrative safeguards
+The operator is responsible for reasonable measures appropriate to the stored information, including:
+- Restricting access to the hosting control panel, files, and database records.
+- Protecting encryption keys, Bot credentials, and API tokens from disclosure.
+- Limiting administrative command access to authorized personnel.
+- Restricting access to moderation reports and evidence channels.
+- Reviewing stored files, backups, logs, and exports for information not covered by application-level encryption.
+- Removing data when it is no longer required or when deletion is legally required.
 - Investigating and responding to security incidents.
+The Bot also relies on Discord's permissions to control access to relevant channels, messages, interactions, and administrative commands.
 
-The Bot also relies on Discord's permission system to control access to relevant channels, messages, interactions, and administrative commands.
-
-No electronic system can be guaranteed to be completely secure.
-
-Users should avoid submitting sensitive information unnecessarily through commands, reports, or other Bot interactions.
+No electronic system can be guaranteed to be completely secure. Users should avoid submitting unnecessary sensitive information through commands, reports, or other Bot interactions.
 
 ## 18. Sensitive Personal Information
 
